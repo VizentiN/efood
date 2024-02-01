@@ -23,6 +23,7 @@ const ProductsList = ({ dishes }: Props) => (
             image={dish.image}
             title={dish.title}
             infos={dish.infos as string[]}
+            id={dish.id}
           />
         ))}
       </List>

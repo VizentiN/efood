@@ -3,7 +3,7 @@ import { colors } from '../../styles'
 
 export const Container = styled.footer`
   background-color: ${colors.cream};
-  padding: 40px 680px;
+  padding: 40px 0;
   font-size: 10px;
 
   .containerImage {

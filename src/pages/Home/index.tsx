@@ -25,7 +25,7 @@ const home: Food[] = [
     rating: 4.6
   },
   {
-    id: 3,
+    id: 1,
     description:
       'Order the best of Japanese cuisine now in the comfort of your home! Fresh sushi, delicious sashimi and irresistible hot dishes. Fast delivery, careful packaging and guaranteed quality. Experience Japan without leaving home with our delivery!',
     image: rest1,
@@ -34,7 +34,7 @@ const home: Food[] = [
     rating: 4.9
   },
   {
-    id: 4,
+    id: 2,
     description:
       'La Dolce Vita Trattoria brings authentic Italian cuisine to you! Enjoy homemade pasta, delicious pizzas and incredible risottos, all in the comfort of your own home. Fast delivery, well-packaged dishes and unforgettable flavor. Order now!',
     image: rest2,
@@ -43,7 +43,7 @@ const home: Food[] = [
     rating: 4.6
   },
   {
-    id: 5,
+    id: 1,
     description:
       'Order the best of Japanese cuisine now in the comfort of your home! Fresh sushi, delicious sashimi and irresistible hot dishes. Fast delivery, careful packaging and guaranteed quality. Experience Japan without leaving home with our delivery!',
     image: rest1,
@@ -52,7 +52,7 @@ const home: Food[] = [
     rating: 4.9
   },
   {
-    id: 6,
+    id: 2,
     description:
       'La Dolce Vita Trattoria brings authentic Italian cuisine to you! Enjoy homemade pasta, delicious pizzas and incredible risottos, all in the comfort of your own home. Fast delivery, well-packaged dishes and unforgettable flavor. Order now!',
     image: rest2,

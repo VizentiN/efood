@@ -5,7 +5,7 @@ import { Props } from '.'
 
 export const TagContainer = styled.div<Props>`
   background-color: ${colors.pink};
-  color: ${colors.white};
+  color: ${colors.cream};
   font-size: 12px;
   font-weight: bold;
   padding: 4px 6px;

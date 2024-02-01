@@ -7,8 +7,8 @@ import Hioki from './pages/Restaurants/Hioki'
 const Routes = () => (
   <Rt>
     <Route path="/" element={<Home />} />
-    <Route path="/restaurant/ladolce" element={<LaDolce />} />
-    <Route path="/restaurant/hioki" element={<Hioki />} />
+    <Route path="/restaurant/1" element={<Hioki />} />
+    <Route path="/restaurant/2" element={<LaDolce />} />
   </Rt>
 )
 

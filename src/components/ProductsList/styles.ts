@@ -4,7 +4,8 @@ import { colors } from '../../styles'
 import { Card } from '../Product/styles'
 
 export const Container = styled.section`
-  padding: 32px;
+  padding-top: 80px;
+  padding-bottom: 120px;
   background-color: ${colors.light_cream};
 
   ${Card} {
@@ -15,9 +16,8 @@ export const Container = styled.section`
 export const List = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 48px;
-  row-gap: 80px;
-  margin-top: 40px;
+  column-gap: 80px;
+  row-gap: 48px;
 `
 
 export const Title = styled.h2`

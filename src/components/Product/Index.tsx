@@ -12,8 +12,10 @@ import {
 import star from '../../assets/images/estrela.svg'
 import Button, { ButtonDishes } from '../Button'
 import { TitleDishes } from '../ProductsList/styles'
+import { Link } from 'react-router-dom'
 
 type Props = {
+  id?: number
   title: string
   rating: number
   infos: string[]
@@ -27,7 +29,7 @@ type Props2 = {
   image: string
 }
 
-const Product = ({ title, description, infos, image, rating }: Props) => (
+const Product = ({ title, description, infos, image, rating, id }: Props) => (
   <Card>
     <img className="restImage" src={image} alt={title} />
     <div className="border">
@@ -42,7 +44,9 @@ const Product = ({ title, description, infos, image, rating }: Props) => (
         <img src={star} alt="star" />
       </Rating>
       <Description>{description}</Description>
-      <Button title={'More about'}></Button>
+      <Link to={`/restaurant/${id}`}>
+        <Button title={'More about'}></Button>
+      </Link>
     </div>
   </Card>
 )

@@ -23,7 +23,7 @@ export const Card = styled.div`
 export const Title = styled.h3`
   font-weight: bold;
   font-size: 18px;
-  margin: 8px 8px;
+  margin: 8px;
 `
 
 export const Description = styled.p`
@@ -33,9 +33,10 @@ export const Description = styled.p`
   margin: 16px 8px;
 `
 export const Infos = styled.div`
+  font-weight: 700;
   position: absolute;
   top: 16px;
-  right: 16px;
+  right: 8px;
 `
 export const Rating = styled.div`
   display: flex;
@@ -44,7 +45,7 @@ export const Rating = styled.div`
   margin: 8px;
   position: absolute;
   right: 8px;
-  top: 228px;
+  top: 218px;
 
   img {
     margin-left: 8px;
