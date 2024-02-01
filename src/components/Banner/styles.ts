@@ -38,7 +38,7 @@ export const TitleCart = styled.h2`
 export const TitleLight = styled.h2`
   font-size: 32px;
   color: ${colors.white};
-  font-weight: normal;
+  font-weight: 100;
   opacity: 0.7;
   position: absolute;
   margin-top: 32px;

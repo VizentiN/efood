@@ -25,7 +25,8 @@ export const Title = styled.h2`
   font-weight: bold;
 `
 export const ContainerDishes = styled.section`
-  padding: 32px;
+  margin-top: 56px;
+  margin-bottom: 120px;
   background-color: ${colors.light_cream};
   color: ${colors.cream};
 
@@ -38,7 +39,6 @@ export const ListDishes = styled.ul`
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 32px;
   row-gap: 32px;
-  margin-top: 56px;
 `
 export const TitleDishes = styled.h2`
   font-size: 16px;
