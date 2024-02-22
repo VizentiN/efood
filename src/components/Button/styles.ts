@@ -9,8 +9,6 @@ export const ButtonContainer = styled.button`
   padding: 4px 6px;
   border: none;
   cursor: pointer;
-  margin-left: 8px;
-  margin-bottom: 8px;
 `
 
 export const ButtonDishesContainer = styled.button`
