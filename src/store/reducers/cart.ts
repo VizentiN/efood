@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-// import { MenuItemsModalProps } from '../../utilities/Types'
 
 type CartState = {
   items: MenuItem[]
@@ -11,17 +10,16 @@ const initialState: CartState = {
   isOpen: false
 }
 
-const cartSlice = createSlice({
+const cartslice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
     add: (state, action: PayloadAction<MenuItem>) => {
-      const product = state.items.find((item) => item.id === action.payload.id)
-
-      if (!product) {
+      const product = state.items.find((item) => item.id == action.payload.id)
+      if (product === undefined) {
         state.items.push(action.payload)
       } else {
-        alert('This item is already on the cart')
+        alert('o produto ja esta no carrinho')
       }
     },
     remove: (state, action: PayloadAction<number>) => {
@@ -32,9 +30,11 @@ const cartSlice = createSlice({
     },
     close: (state) => {
       state.isOpen = false
+    },
+    clear: (state) => {
+      state.items = []
     }
   }
 })
-
-export const { add, open, close, remove } = cartSlice.actions
-export default cartSlice.reducer
+export const { add, close, open, remove, clear } = cartslice.actions
+export default cartslice.reducer

@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-
+import api from '../services/api'
 import cartReducer from './reducers/cart'
 
-import api from '../services/api'
-
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     cart: cartReducer,
     [api.reducerPath]: api.reducer

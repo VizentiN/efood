@@ -1,28 +1,18 @@
-// import { useEffect, useState } from 'react'
+import Header from '../../container/Header'
+import RestaurantsList from '../../container/RestaurantList'
 
-import Banner from '../../components/Banner'
-// import ProductsList from '../../components/ProductsList'
-import Main from '../../container/Main'
-// import { Menu } from '../../components/Menu'
-
-// export type Restaurant = {
-//   id: number
-//   titulo: string
-//   destacado: boolean
-//   tipo: string
-//   avaliacao: number
-//   descricao: string
-//   capa: string
-//   cardapio: Menu[]
-// }
+import { useGetRestaurantsListQuery } from '../../services/api'
 
 const Home = () => {
-  return (
-    <>
-      <Banner />
-      <Main />
-    </>
-  )
+  const { data: restaurants } = useGetRestaurantsListQuery()
+  if (restaurants) {
+    return (
+      <>
+        <Header />
+        <RestaurantsList restaurants={restaurants} />
+      </>
+    )
+  }
+  return <h4>Carregando...</h4>
 }
-
 export default Home

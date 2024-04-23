@@ -1,13 +1,9 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
 
-import { Props } from '.'
-
-export const TagContainer = styled.div<Props>`
+export const TagContainer = styled.div`
   background-color: ${colors.pink};
-  color: ${colors.cream};
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 6px;
+  color: ${colors.light_cream};
   display: inline-block;
+  padding: 6px 4px;
 `

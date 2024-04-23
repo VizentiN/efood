@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
-import { TagContainer } from '../Tag/styles'
-import { ButtonContainer } from '../Button/styles'
 
-import fechar from '../../assets/images/lixeira-de-reciclagem 1.png'
+type Props = {
+  maxWidht?: string
+  isVisible?: boolean
+}
 
 export const Overlay = styled.div`
   position: absolute;
@@ -14,95 +15,145 @@ export const Overlay = styled.div`
   background-color: #000;
   opacity: 0.7;
 `
-
 export const CartContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
+  display: none;
+  justify-content: end;
   width: 100%;
   height: 100%;
-  display: none;
-  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  right: 0;
   z-index: 1;
 
   &.is-open {
     display: flex;
   }
 `
-
-export const SideBar = styled.aside`
+export const SideBar = styled.aside<Props>`
   background-color: ${colors.pink};
+  width: 360px;
+  padding: 32px 8px 0 8px;
   z-index: 1;
-  padding: 40px 16px 0 16px;
-  max-width: 360px;
-  width: 100%;
+  display: ${(props) => (props.isVisible ? 'block' : 'none')};
 
-  ${ButtonContainer} {
-    max-width: 100%;
+  ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+  button {
     width: 100%;
   }
-`
 
-export const Prices = styled.p`
-  font-weight: bold;
-  font-size: 14px;
-  color: ${colors.white};
-  margin-bottom: 24px;
-
-  span {
-    display: block;
-    font-size: 12px;
-    color: ${colors.white};
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: ${colors.light_cream};
+  }
+  .emptyCart {
+    color: ${colors.light_cream};
+    text-align: center;
+    font-weight: bold;
   }
 `
-
-export const Quantity = styled.p`
-  font-weight: bold;
-  font-size: 16px;
-  color: ${colors.white};
-  margin-top: 32px;
-  margin-bottom: 16px;
-`
-
 export const CartItem = styled.li`
-  display: flex;
-  background-color: ${colors.light_cream};
-  padding: 8px 0;
   position: relative;
+  display: flex;
+  padding: 8px 8px 12px 8px;
+  background-color: ${colors.light_cream};
   color: ${colors.pink};
+  // margin-bottom: 16px;
+
+  h3 {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400px;
+    color: ${colors.pink};
+  }
 
   img {
     height: 80px;
     width: 80px;
-    object-fit: cover;
-    margin-right: 24px;
-  }
-
-  h3 {
-    font-weight: bold;
-    font-size: 16px;
-  }
-
-  span {
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-  }
-
-  ${TagContainer} {
     margin-right: 8px;
-    margin-top: 8px;
-    margin-bottom: 16px;
   }
-
-  button {
-    background-image: url(${fechar});
+  div > img {
     width: 16px;
     height: 16px;
-    border: none;
-    background-color: transparent;
     position: absolute;
-    bottom: 8;
     right: 0;
+    bottom: 8px;
+    cursor: pointer;
+  }
+`
+export const CartDescription = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  color: ${colors.light_cream};
+  font-size: 14px;
+  font-weight: 700;
+
+  button {
+    width: 100%;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+`
+export const Form = styled.form`
+  button {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .magin-bottom {
+    margin-bottom: 24px;
+  }
+`
+export const Title = styled.h2`
+  font-size: 16px;
+  font-weight: 700;
+  color: ${colors.light_cream};
+  margin-bottom: 16px;
+`
+export const InputGroup = styled.div<Props>`
+  max-width: ${(props) => props.maxWidht || 'auto'};
+  flex: auto;
+
+  label {
+    font-size: 14px;
+    font-weight: 700;
+    color: ${colors.light_cream};
+  }
+  input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background-color: ${colors.light_cream};
+    border: 1px solid ${colors.light_cream};
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .error {
+    border: 2px solid red;
+  }
+`
+export const InputGrouping = styled.div`
+  display: flex;
+  column-gap: 30px;
+`
+export const MessageContainer = styled.div`
+  p {
+    margin-bottom: 24px;
   }
 `
