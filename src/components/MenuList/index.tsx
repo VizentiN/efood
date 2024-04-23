@@ -1,6 +1,6 @@
 import Hero from '../Hero'
 
-import MenuItem from '../../components/Menu'
+import MenuItem from '../Menu'
 import { RestaurantApiProps } from '../../utilities/Types'
 import { ListDishes } from './styles'
 

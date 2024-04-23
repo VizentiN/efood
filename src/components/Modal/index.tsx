@@ -1,11 +1,19 @@
+import { useDispatch } from 'react-redux'
 import StyledModal, { StyledModalContainer } from './styles'
 import btn_close from '../../assets/images/close.png'
 
 import { getCurrency } from '../../utilities/Helpers'
 import { MenuItemsModalProps } from '../../utilities/Types'
 import { ButtonDishesContainer } from '../Button/styles'
+import { add, open } from '../../store/reducers/cart'
 
 const ModalItem = (props: MenuItemsModalProps) => {
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(props))
+    dispatch(open())
+  }
   if (!props.showModal) return <></>
 
   return (
@@ -27,10 +35,11 @@ const ModalItem = (props: MenuItemsModalProps) => {
             Serve: de {props.porcao}
           </p>
           <ButtonDishesContainer
-            onClick={() => {
-              const { id, nome, descricao, foto, porcao, preco } = props
-              const data = { id, nome, descricao, foto, porcao, preco }
-            }}
+            onClick={addToCart}
+            // onClick={() => {
+            //   const { id, nome, descricao, foto, porcao, preco } = props
+            //   const data = { id, nome, descricao, foto, porcao, preco }
+            // }}
           >
             Adicionar ao carrinho - {getCurrency(props.preco)}
           </ButtonDishesContainer>

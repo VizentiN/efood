@@ -1,6 +1,7 @@
 import { ButtonContainer, ButtonDishesContainer } from './styles'
 
 type Props = {
+  to?: string
   title: string
   onClick?: () => void
 }

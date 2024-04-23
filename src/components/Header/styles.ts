@@ -20,8 +20,4 @@ export const HeaderBar = styled.header`
 
 export const LinkCart = styled.a`
   display: flex;
-
-  img {
-    margin-left: 16px;
-  }
 `
