@@ -10,7 +10,7 @@ declare interface MenuItem {
 declare type Restaurants = {
   id: number
   titulo: string
-  destacado?: boolean
+  destacado: boolean
   tipo: string
   avaliacao: number
   descricao: string

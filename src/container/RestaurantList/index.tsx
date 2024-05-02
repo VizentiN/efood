@@ -19,6 +19,7 @@ const RestaurantsList = ({ restaurants }: Props) => {
             name={r.titulo}
             description={r.descricao}
             infos={r.tipo}
+            destacado={r.destacado}
             image={r.capa}
             rating={r.avaliacao}
             link={`/restaurants/${r.id}`}

@@ -8,6 +8,7 @@ type Props = {
   description: string
   image: string
   rating: number
+  destacado: boolean
   infos: string
   link: string
 }
@@ -18,25 +19,29 @@ const RestaurantCard = ({
   image,
   rating,
   infos,
+  destacado,
   link
-}: Props) => (
-  <S.Card>
-    <img src={image} alt="teste" />
-    <S.Infos>
-      <Tag>{infos}</Tag>
-    </S.Infos>
-    <S.CardDescription>
-      <S.Title>
-        <h2>{name}</h2>
-        <S.Rating>
-          {rating}
-          <img src={estrela} alt="" />
-        </S.Rating>
-      </S.Title>
-      <p>{description}</p>
-      <S.Botao to={link}>Saiba mais</S.Botao>
-    </S.CardDescription>
-  </S.Card>
-)
+}: Props) => {
+  return (
+    <S.Card>
+      <img src={image} alt="teste" />
+      <S.Infos>
+        {destacado && <Tag>Destaque do dia</Tag>}
+        <Tag>{infos}</Tag>
+      </S.Infos>
+      <S.CardDescription>
+        <S.Title>
+          <h2>{name}</h2>
+          <S.Rating>
+            {rating}
+            <img src={estrela} alt="" />
+          </S.Rating>
+        </S.Title>
+        <p>{description}</p>
+        <S.Botao to={link}>Saiba mais</S.Botao>
+      </S.CardDescription>
+    </S.Card>
+  )
+}
 
 export default RestaurantCard

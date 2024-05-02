@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalCss = createGlobalStyle`
-  *{
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,7 +9,7 @@ export const GlobalCss = createGlobalStyle`
     list-style: none;
   }
 
-  .containerMedium{
+  .containerMedium {
     max-width: 600px;
     widht: 100%;
     margin: 0 auto;

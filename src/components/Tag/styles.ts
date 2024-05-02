@@ -6,4 +6,6 @@ export const TagContainer = styled.div`
   color: ${colors.light_cream};
   display: inline-block;
   padding: 6px 4px;
+  font-size: 12px;
+  font-weight: bold;
 `
