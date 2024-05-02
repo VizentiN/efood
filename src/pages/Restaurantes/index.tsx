@@ -8,7 +8,6 @@ import { useGetRestaurantQuery } from '../../services/api'
 const Restaurant = () => {
   const { id } = useParams()
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const { data: restaurant } = useGetRestaurantQuery(id!)
 
   if (restaurant) {

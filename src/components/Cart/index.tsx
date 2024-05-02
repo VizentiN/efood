@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-// import InputMask from 'react-input-mask'
-// import * as Yup from 'yup'
-// import { useFormik } from 'formik'
+import InputMask from 'react-input-mask'
+import * as Yup from 'yup'
+import { useFormik } from 'formik'
 
 import lixeira from '../../assets/images/lixeira.png'
 
-// import { usePurchaseMutation } from '../../services/api'
+import { usePurchaseMutation } from '../../services/api'
 
 import * as S from './styles'
 import { close, remove, clear } from '../../store/reducers/cart'
@@ -20,137 +20,136 @@ const Cart = () => {
 
   const removeItem = (id: number) => {
     dispatch(remove(id))
-    console.log('cliquei')
   }
   const getTotalPrice = () => {
     return items.reduce((acumulador, valorAtual) => {
       return (acumulador += valorAtual.preco)
     }, 0)
   }
-  // const [purchase, { data, isSuccess }] = usePurchaseMutation()
+  const [purchase, { data, isSuccess }] = usePurchaseMutation()
   const [cart, setCart] = useState(true)
   const [deliveryData, setDeliveryData] = useState(false)
   const [paymentData, setPaymentData] = useState(false)
   const [checkout, setCheckout] = useState(false)
   const navigate = useNavigate()
 
-  // //function responsible for redirecting to the delivery form
-  // const goToDelivery = () => {
-  //   setCart(false)
-  //   setPaymentData(false)
-  //   setDeliveryData(true)
-  // }
-  // //function responsible for redirecting to the purchase form
-  // const goToPayment = () => {
-  //   if (
-  //     !form.errors.fullName &&
-  //     !form.errors.address &&
-  //     !form.errors.city &&
-  //     !form.errors.cep &&
-  //     !form.errors.number
-  //   ) {
-  //     setPaymentData(true)
-  //     setDeliveryData(false)
-  //   }
-  // }
   //function responsible for redirecting to the delivery form
-  // const backToCart = () => {
-  //   setCart(true)
-  //   setPaymentData(false)
-  //   setDeliveryData(false)
-  //   setCheckout(false)
-  // }
-  //responsible function return to the initial state of the cart
-  // const goToCheckout = () => {
-  //   if (
-  //     !form.errors.cardOwner &&
-  //     !form.errors.cardNumber &&
-  //     !form.errors.cardCode &&
-  //     !form.errors.expiresMonth &&
-  //     !form.errors.expiresYear
-  //   ) {
-  //     setPaymentData(false)
-  //     setCheckout(true)
-  //   }
-  // }
+  const goToDelivery = () => {
+    setCart(false)
+    setPaymentData(false)
+    setDeliveryData(true)
+  }
+  //function responsible for redirecting to the purchase form
+  const goToPayment = () => {
+    if (
+      !form.errors.fullName &&
+      !form.errors.address &&
+      !form.errors.city &&
+      !form.errors.cep &&
+      !form.errors.number
+    ) {
+      setPaymentData(true)
+      setDeliveryData(false)
+    }
+  }
+  // function responsible for redirecting to the delivery form
+  const backToCart = () => {
+    setCart(true)
+    setPaymentData(false)
+    setDeliveryData(false)
+    setCheckout(false)
+  }
+  // responsible function return to the initial state of the cart
+  const goToCheckout = () => {
+    if (
+      !form.errors.cardOwner &&
+      !form.errors.cardNumber &&
+      !form.errors.cardCode &&
+      !form.errors.expiresMonth &&
+      !form.errors.expiresYear
+    ) {
+      setPaymentData(false)
+      setCheckout(true)
+    }
+  }
 
-  // const form = useFormik({
-  //   initialValues: {
-  //     fullName: '',
-  //     address: '',
-  //     city: '',
-  //     cep: '',
-  //     number: '',
-  //     reference: '',
-  //     cardOwner: '',
-  //     cardNumber: '',
-  //     cardCode: '',
-  //     expiresMonth: '',
-  //     expiresYear: ''
-  //   },
-  //   validationSchema: Yup.object({
-  //     fullName: Yup.string()
-  //       .min(3, 'o nome precisa ter mais de 3 caracteres')
-  //       .required('este campo é obrigatório'),
-  //     address: Yup.string().required('este campo é obrigatório'),
-  //     city: Yup.string().required('este campo é obrigatório'),
-  //     cep: Yup.string().required('este campo é obrigatório'),
-  //     number: Yup.number()
-  //       .min(3, 'o nome precisa ter mais de 3 caracteres')
-  //       .required('este campo é obrigatório.'),
-  //     cardOwner: Yup.string()
-  //       .min(3, 'o nome precisa ter mais de 3 caracteres')
-  //       .required('O campo é obrigatório'),
-  //     cardNumber: Yup.string().required('O campo é obrigatório'),
-  //     cardCode: Yup.string().required('O campo é obrigatório'),
-  //     expiresMonth: Yup.number().required('O campo é obrigatório'),
-  //     expiresYear: Yup.number().required('O campo é obrigatório')
-  //   }),
-  //   onSubmit: (values) => {
-  //     purchase({
-  //       products: items.map((item) => ({
-  //         id: item.id,
-  //         price: item.preco
-  //       })),
-  //       delivery: {
-  //         receiver: values.fullName,
-  //         adress: {
-  //           description: values.address,
-  //           city: values.city,
-  //           zipCode: values.cep,
-  //           number: Number(values.number),
-  //           complement: values.reference
-  //         }
-  //       },
-  //       payment: {
-  //         card: {
-  //           name: values.cardOwner,
-  //           number: values.cardNumber,
-  //           code: Number(values.cardCode),
-  //           expires: {
-  //             year: Number(values.expiresYear),
-  //             month: Number(values.expiresMonth)
-  //           }
-  //         }
-  //       }
-  //     })
-  //   }
-  // })
-  // // function to complete the purchase
-  // const sucessPayment = () => {
-  //   dispatch(close())
-  //   dispatch(clear())
-  //   backToCart()
-  //   navigate('/')
-  // }
-  // //function that checks the fields for errors
-  // const checkInput = (fieldName: string) => {
-  //   const isTouched = fieldName in form.touched
-  //   const isInvalid = fieldName in form.errors
-  //   const hasError = isTouched && isInvalid
+  const form = useFormik({
+    initialValues: {
+      fullName: '',
+      address: '',
+      city: '',
+      cep: '',
+      number: '',
+      reference: '',
+      cardOwner: '',
+      cardNumber: '',
+      cardCode: '',
+      expiresMonth: '',
+      expiresYear: ''
+    },
+    validationSchema: Yup.object({
+      fullName: Yup.string()
+        .min(3, 'o nome precisa ter mais de 3 caracteres')
+        .required('este campo é obrigatório'),
+      address: Yup.string().required('este campo é obrigatório'),
+      city: Yup.string().required('este campo é obrigatório'),
+      cep: Yup.string().required('este campo é obrigatório'),
+      number: Yup.number()
+        .min(3, 'o nome precisa ter mais de 3 caracteres')
+        .required('este campo é obrigatório.'),
+      cardOwner: Yup.string()
+        .min(3, 'o nome precisa ter mais de 3 caracteres')
+        .required('O campo é obrigatório'),
+      cardNumber: Yup.string().required('O campo é obrigatório'),
+      cardCode: Yup.string().required('O campo é obrigatório'),
+      expiresMonth: Yup.number().required('O campo é obrigatório'),
+      expiresYear: Yup.number().required('O campo é obrigatório')
+    }),
+    onSubmit: (values) => {
+      purchase({
+        products: items.map((item) => ({
+          id: item.id,
+          price: item.preco
+        })),
+        delivery: {
+          receiver: values.fullName,
+          adress: {
+            description: values.address,
+            city: values.city,
+            zipCode: values.cep,
+            number: Number(values.number),
+            complement: values.reference
+          }
+        },
+        payment: {
+          card: {
+            name: values.cardOwner,
+            number: values.cardNumber,
+            code: Number(values.cardCode),
+            expires: {
+              year: Number(values.expiresYear),
+              month: Number(values.expiresMonth)
+            }
+          }
+        }
+      })
+    }
+  })
+  // function to complete the purchase
+  const sucessPayment = () => {
+    dispatch(close())
+    dispatch(clear())
+    backToCart()
+    navigate('/')
+  }
+  //function that checks the fields for errors
+  const checkInput = (fieldName: string) => {
+    const isTouched = fieldName in form.touched
+    const isInvalid = fieldName in form.errors
+    const hasError = isTouched && isInvalid
 
-  //   return hasError
-  // }
+    return hasError
+  }
   return (
     <S.CartContainer className={isOpen ? 'is-open' : ''}>
       <S.Overlay onClick={() => dispatch(close())} />
@@ -179,12 +178,14 @@ const Cart = () => {
             </ul>
             <S.CartDescription>
               <p>Valor total</p> <span>{formataPreco(getTotalPrice())}</span>
-              <button className="buttonAdd">Continuar com a entrega</button>
+              <button className="buttonAdd" onClick={goToDelivery}>
+                Continuar com a entrega
+              </button>
             </S.CartDescription>
           </>
         )}
       </S.SideBar>
-      {/* <S.SideBar isVisible={deliveryData}>
+      <S.SideBar isVisible={deliveryData}>
         <S.Form onSubmit={form.handleSubmit}>
           <S.Title>Entrega</S.Title>
           <S.InputGroup>
@@ -263,8 +264,8 @@ const Cart = () => {
             Voltar para o carrinho
           </button>
         </S.Form>
-      </S.SideBar> */}
-      {/* <S.SideBar isVisible={paymentData}>
+      </S.SideBar>
+      <S.SideBar isVisible={paymentData}>
         <S.Form onSubmit={form.handleSubmit}>
           <S.Title>
             Pagamento - Valor a pagar {formataPreco(getTotalPrice())}
@@ -339,9 +340,9 @@ const Cart = () => {
             Voltar para a edição de endereço
           </button>
         </S.Form>
-      </S.SideBar> */}
-      {/* {isSuccess && data ? ( */}
-      {/* <S.SideBar isVisible={checkout}>
+      </S.SideBar>
+      {isSuccess && data ? (
+        <S.SideBar isVisible={checkout}>
           <S.Title>Pedido realizado - {data.orderId} </S.Title>
           <S.MessageContainer>
             <p>
@@ -366,16 +367,16 @@ const Cart = () => {
             </button>
           </S.MessageContainer>
         </S.SideBar>
-      ) : ( */}
-      {/* <S.SideBar isVisible={checkout}>
+      ) : (
+        <S.SideBar isVisible={checkout}>
           <S.Title> Erro na transação</S.Title>
           <p>Verifique os dados do cartão</p>
           <button className="buttonAdd" type="button" onClick={backToCart}>
             Voltar para o carrinho
           </button>
-        </S.SideBar> */}
+        </S.SideBar>
+      )}
     </S.CartContainer>
   )
 }
-// }
 export default Cart

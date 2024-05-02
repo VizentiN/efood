@@ -1,5 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 
+export const colors = {
+  pink: '#E66767',
+  light_cream: '#FFEBD9',
+  white: '#FFFFFF',
+  black: '#000'
+}
+
 export const GlobalCss = createGlobalStyle`
   * {
     margin: 0;
@@ -17,6 +24,7 @@ export const GlobalCss = createGlobalStyle`
   }
 
   .containerLarge {
+    background-color: ;
     max-width: 1024px;
     widht: 100%;
     margin: 0 auto;
@@ -35,10 +43,4 @@ export const GlobalCss = createGlobalStyle`
     font-size: 14px;
     font-weight: 700;
   }
-`
-export const colors = {
-  pink: '#E66767',
-  light_cream: '#FFEBD9',
-  white: '#FFFFFF',
-  black: '#000'
-}
+  `
